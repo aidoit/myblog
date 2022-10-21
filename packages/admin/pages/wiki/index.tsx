@@ -103,7 +103,7 @@ const Page = () => {
           style={{ width: '100%' }}
           cover={<img className={style.cover} alt={book.title} src={book.cover} />}
           actions={[
-            <Link key="edit" href={`/knowledge/editor/[id]`} as={`/knowledge/editor/` + book.id}>
+            <Link key="edit" href={`/wiki/editor/[id]`} as={`/wiki/editor/` + book.id}>
               <a>
                 <EditOutlined key="edit" />
               </a>

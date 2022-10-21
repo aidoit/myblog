@@ -1,23 +1,41 @@
 import { ApiProperty } from '@nestjs/swagger';
+/*
+ * snowflake-uuid
+ * https://github.com/rakheyl/snowflake-uuid
+ */
+import { Worker } from 'snowflake-uuid';
 import {
+  BeforeInsert,
   Column,
   CreateDateColumn,
   Entity,
   JoinTable,
   ManyToMany,
   ManyToOne,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 import { Category } from '../category/category.entity';
 import { Tag } from '../tag/tag.entity';
+const generator = new Worker(0, 1, {
+  workerIdBits: 5,
+  datacenterIdBits: 5,
+  sequenceBits: 12,
+});
 
 @Entity()
 export class Article {
   @ApiProperty()
-  @PrimaryGeneratedColumn('uuid')
+  // @PrimaryGeneratedColumn('uuid')
+  // id: string;
+  @PrimaryColumn('varchar', {})
   id: string;
+
+  @BeforeInsert()
+  setId() {
+    this.id = generator.nextId().toString();
+  }
 
   @ApiProperty()
   @Column()
@@ -44,12 +62,20 @@ export class Article {
   toc: string; // 格式化内容索引，自动生成
 
   @ApiProperty()
-  @ManyToOne(() => Category, (category) => category.articles, { cascade: true })
+  @ManyToOne(
+    () => Category,
+    (category) => category.articles,
+    { cascade: true }
+  )
   @JoinTable()
   category: Category;
 
   @ApiProperty()
-  @ManyToMany(() => Tag, (tag) => tag.articles, { cascade: true })
+  @ManyToMany(
+    () => Tag,
+    (tag) => tag.articles,
+    { cascade: true }
+  )
   @JoinTable()
   tags: Array<Tag>;
 

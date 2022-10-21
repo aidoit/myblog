@@ -12,6 +12,7 @@ import { Comment } from '@/components/Comment';
 import { ImageViewer } from '@/components/ImageViewer';
 import { LocaleTime } from '@/components/LocaleTime';
 import { MarkdownReader } from '@/components/MarkdownReader';
+import { RewradDialogue } from '@/components/RewradDialogue';
 import { Toc } from '@/components/Toc';
 import { GlobalContext } from '@/context/global';
 import { DoubleColumnLayout } from '@/layout/DoubleColumnLayout';
@@ -87,9 +88,7 @@ const Article: NextPage<IProps> = ({ article }) => {
       <ImageViewer containerSelector="#js-article-wrapper">
         <article id="js-article-wrapper" className={style.articleWrap}>
           {/* S 文章 Seo 信息 */}
-          {setting.systemUrl && (
-            <meta itemProp="url" content={url.resolve(setting.systemUrl, `/article/${article.id}`)} />
-          )}
+          {setting.systemUrl && <meta itemProp="url" content={url.resolve(setting.systemUrl, `/post/${article.id}`)} />}
           <meta itemProp="headline" content={article.title} />
           {article.tags && <meta itemProp="keywords" content={article.tags.map((tag) => tag.label).join(' ')} />}
           <meta itemProp="dataPublished" content={article.publishAt} />
@@ -123,6 +122,10 @@ const Article: NextPage<IProps> = ({ article }) => {
           {/* S 文章内容 */}
           <MarkdownReader content={article.html} />
           {/* E 文章内容 */}
+
+          {/* S 文章赞赏 */}
+          <RewradDialogue />
+          {/* E 文章赞赏 */}
 
           {/* S 文章脚部 */}
           <div className={style.footerInfoWrap}>
@@ -199,6 +202,14 @@ const Article: NextPage<IProps> = ({ article }) => {
         api: (id, type) => ArticleProvider.updateArticleLikes(id, type).then((res) => res.likes),
       }}
       showComment={article.isCommentable}
+      shareProps={
+        shouldCheckPassWord
+          ? null
+          : {
+              title: article.title,
+              url: `/post/${article.id}`,
+            }
+      }
     />
   );
 };

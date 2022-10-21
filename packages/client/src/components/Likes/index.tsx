@@ -35,7 +35,7 @@ export const Likes: React.FC<LikesProps> = ({ defaultCount, id, api }) => {
   }, []);
 
   return (
-    <Badge size="small" count={count} style={{ backgroundColor: 'var(--primary-color)' }}>
+    <Badge size="small" count={count} style={{ backgroundColor: '#f91880' }}>
       <div className={cls(style.wrap, likes.includes(id) && style.active)} onClick={like}>
         <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
           <path

@@ -23,7 +23,7 @@ export const ArticleCarousel: React.FC<IProps> = ({ articles = [] }) => {
             return (
               <div key={article.id}>
                 <div className={style.articleItem} style={{ backgroundImage: `url(${article.cover})` }}>
-                  <Link href={`/article/[id]`} as={`/article/${article.id}`} scroll={false}>
+                  <Link href={`/post/[id]`} as={`/post/${article.id}`} scroll={false}>
                     <a aria-label={article.title}>
                       <div className={style.info}>
                         <h2 className={style.title}>{article.title}</h2>

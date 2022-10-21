@@ -65,7 +65,7 @@ export const UserInfo: React.FC<{
       {user.avatar ? <Avatar size={28} src={user.avatar}></Avatar> : <Avatar size={28}>{user.name.charAt(0)}</Avatar>}
     </Dropdown>
   ) : (
-    <Button onClick={toggleVisible} size="middle">
+    <Button type="primary" onClick={toggleVisible} size="middle">
       {t('userInfoConfirm')}
     </Button>
   );

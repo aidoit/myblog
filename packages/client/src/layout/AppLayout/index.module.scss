@@ -2,7 +2,7 @@
   height: 100vh;
   min-height: 100vh;
 
-  > main {
+  >main {
     position: relative;
     z-index: 1;
     min-height: calc(100% - 64px);
@@ -25,4 +25,22 @@
   img {
     width: 100%;
   }
+}
+
+.backupicon {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  color: #838ea5;
+  fill: var(--second-text-color);
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
 }

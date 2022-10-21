@@ -12,7 +12,8 @@
 
   &:hover,
   &.active {
-    color: var(--primary-color);
+    // color: var(--primary-color);
+    color:#f91880;
   }
 
   + .iconWrap {

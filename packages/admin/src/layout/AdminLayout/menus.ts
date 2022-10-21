@@ -51,8 +51,8 @@ export const menus = [
     ignore: true,
   },
   {
-    title: '知识小册',
-    path: '/knowledge',
+    title: '知识百科',
+    path: '/wiki',
     icon: 'book',
   },
   {

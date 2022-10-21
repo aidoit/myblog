@@ -83,7 +83,7 @@ class MyApp extends App<IGlobalContext, unknown> {
   render() {
     const { Component, pageProps, i18n, locales, router, ...contextValue } = this.props;
     const locale = this.state.locale || router.locale;
-    const { needLayoutFooter = true, hasBg = false } = pageProps;
+    const { needLayoutFooter = false, hasBg = false } = pageProps;
     const message = i18n[locale] || {};
 
     return (

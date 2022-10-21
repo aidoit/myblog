@@ -1,13 +1,14 @@
-import { SearchOutlined } from '@ant-design/icons';
+// import { SearchOutlined } from '@ant-design/icons';
+import { createFromIconfontCN } from '@ant-design/icons';
 import cls from 'classnames';
 import Link from 'next/link';
 import { default as Router, useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import React, { useEffect } from 'react';
 
-import { Locales } from '@/components/Locales';
+// import { Locales } from '@/components/Locales';
 import { Search } from '@/components/Search';
-import { Theme } from '@/components/Theme';
+// import { Theme } from '@/components/Theme';
 import { UserInfo } from '@/components/UserInfo';
 import { useToggle } from '@/hooks/useToggle';
 import { getDocumentScrollTop } from '@/utils';
@@ -24,10 +25,14 @@ const NAV_LINKS = [
     locale: 'archives',
   },
   {
-    path: '/knowledge',
+    path: '/wiki',
     locale: 'knowledgeBooks',
   },
 ];
+
+const IconFont = createFromIconfontCN({
+  scriptUrl: ['//at.alicdn.com/t/c/font_3373608_fjjugrwddbs.js'],
+});
 
 export const Header = ({ setting, tags, pages, hasBg = false }) => {
   const t = useTranslations();
@@ -152,14 +157,14 @@ export const Header = ({ setting, tags, pages, hasBg = false }) => {
                 <UserInfo />
               </li>
               <li className={style.toolWrapper}>
-                <SearchOutlined style={{ cursor: 'pointer' }} onClick={toggleSearch} />
+                <IconFont type="icon-search" style={{ cursor: 'pointer', fontSize: '23px' }} onClick={toggleSearch} />
               </li>
-              <li className={style.toolWrapper}>
+              {/* <li className={style.toolWrapper}>
                 <Theme />
               </li>
               <li className={style.toolWrapper}>
                 <Locales />
-              </li>
+              </li> */}
             </ul>
             <Search tags={tags} visible={showSearch} onClose={toggleSearch} />
           </nav>

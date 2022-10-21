@@ -55,7 +55,7 @@ export const ArticleRecommend: React.FC<IProps> = ({ mode = 'vertical', articleI
               {articles.map((article) => {
                 return (
                   <li key={article.id}>
-                    <Link href={`/article/[id]`} as={`/article/${article.id}`} scroll={false}>
+                    <Link href={`/post/[id]`} as={`/post/${article.id}`} scroll={false}>
                       <a>
                         <span>{article.title}</span>
                         {' · '}

@@ -34,7 +34,7 @@ const Page: NextPage<IProps> = ({ pId, book, otherBooks = [] }) => {
 
   const start = useCallback(() => {
     const chapter = chapters[0];
-    window.open(`/knowledge/${pId}/${chapter.id}`);
+    window.open(`/wiki/${pId}/${chapter.id}`);
   }, [chapters, pId]);
 
   if (!book) {
@@ -55,7 +55,7 @@ const Page: NextPage<IProps> = ({ pId, book, otherBooks = [] }) => {
         <div className={style.breadcrump}>
           <Breadcrumb>
             <Breadcrumb.Item>
-              <Link href="/knowledge">
+              <Link href="/wiki">
                 <a aria-label="knowledges books">{t('knowledgeBooks')}</a>
               </Link>
             </Breadcrumb.Item>
@@ -110,7 +110,7 @@ const Page: NextPage<IProps> = ({ pId, book, otherBooks = [] }) => {
                         const chapter = chapters[idx];
 
                         return (
-                          <Link as={`/knowledge/${pId}/${chapter.id}`} href={`/knowledge/[pId]/[id]`}>
+                          <Link as={`/wiki/${pId}/${chapter.id}`} href={`/knowledge/[pId]/[id]`}>
                             <a aria-label={chapter.title}>
                               <span>{chapter.title}</span>
                               <span>

@@ -165,7 +165,7 @@ const Page: NextPage<IProps> = ({ id, knowledge: defaultKnowledge }) => {
 
   const goback = useCallback(() => {
     if (hasSavedRef.current) {
-      Router.push('/knowledge');
+      Router.push('/wiki');
       return;
     }
     hasSavedRef.current = true;
@@ -173,13 +173,13 @@ const Page: NextPage<IProps> = ({ id, knowledge: defaultKnowledge }) => {
       title: '确认关闭？如果有内容变更，请先保存!',
       onOk: () => {
         save().then(() => {
-          Router.push('/knowledge');
+          Router.push('/wiki');
         });
       },
       onCancel: () => {
         window.removeEventListener('beforeunload', goback);
         Router.events.off('routeChangeStart', goback);
-        Router.push('/knowledge');
+        Router.push('/wiki');
       },
       transitionName: '',
       maskTransitionName: '',

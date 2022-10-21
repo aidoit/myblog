@@ -75,12 +75,12 @@ const Page: NextPage<IProps> = ({ pId, id, book, chapter }) => {
             <div className={cls(style.breadcrump)}>
               <Breadcrumb>
                 <Breadcrumb.Item>
-                  <Link href="/knowledge">
+                  <Link href="/wiki">
                     <a>{t('knowledgeBooks')}</a>
                   </Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
-                  <Link as={`/knowledge/${pId}`} href="/knowledge/[pId]">
+                  <Link as={`/wiki/${pId}`} href="/wiki/[pId]">
                     <a aria-label={book.title}>{book.title}</a>
                   </Link>
                 </Breadcrumb.Item>
@@ -125,7 +125,7 @@ const Page: NextPage<IProps> = ({ pId, id, book, chapter }) => {
                           width: next ? '45%' : '100%',
                         }}
                       >
-                        <Link href={`/knowledge/[pId]/[id]`} as={`/knowledge/${pId}/${prev.id}`}>
+                        <Link href={`/wiki/[pId]/[id]`} as={`/wiki/${pId}/${prev.id}`}>
                           <a aria-label={prev.title}>
                             <LeftOutlined />
                             <span>{prev.title}</span>
@@ -140,7 +140,7 @@ const Page: NextPage<IProps> = ({ pId, id, book, chapter }) => {
                           width: prev ? '45%' : '100%',
                         }}
                       >
-                        <Link href={`/knowledge/[pId]/[id]`} as={`/knowledge/${pId}/${next.id}`}>
+                        <Link href={`/wiki/[pId]/[id]`} as={`/wiki/${pId}/${next.id}`}>
                           <a aria-label={next.title}>
                             <span>{next.title}</span>
                             <RightOutlined />
@@ -169,7 +169,7 @@ const Page: NextPage<IProps> = ({ pId, id, book, chapter }) => {
                   {chapters.map((chapter) => {
                     return (
                       <li key={chapter.id} id={`js-toc-item-wrapper-${chapter.id}`}>
-                        <Link as={`/knowledge/${pId}/${chapter.id}`} href={`/knowledge/[pId]/[id]`}>
+                        <Link as={`/wiki/${pId}/${chapter.id}`} href={`/wikis/[pId]/[id]`}>
                           <a aria-label={chapter.title} className={cls(chapter.id === id && style.active)}>
                             {chapter.title}
                           </a>

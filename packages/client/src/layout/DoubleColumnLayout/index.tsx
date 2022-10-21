@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { CommentIcon } from '@/components/Comment/CommentIcon';
 import { Likes, LikesProps } from '@/components/Likes';
+import { Share, ShareProps } from '@/components/Share';
 import { useToggle } from '@/hooks/useToggle';
 import { getDocumentScrollTop } from '@/utils';
 
@@ -17,6 +18,7 @@ interface IProps {
   minHeight?: string | number;
   likesProps?: LikesProps;
   showComment?: boolean;
+  shareProps?: ShareProps;
 }
 
 export const DoubleColumnLayout: React.FC<IProps> = ({
@@ -28,6 +30,7 @@ export const DoubleColumnLayout: React.FC<IProps> = ({
   minHeight = '100vh',
   likesProps,
   showComment = false,
+  shareProps,
 }) => {
   const $aside = useRef<HTMLElement>();
   const [showWidge, toggleWidge] = useToggle(true);
@@ -70,7 +73,7 @@ export const DoubleColumnLayout: React.FC<IProps> = ({
     <div className={cls(style.outerWrap)} style={{ minHeight }}>
       <div className={cls('container')}>
         <div className={style.wrap}>
-          {(likesProps || showComment) && (
+          {(likesProps || showComment || shareProps) && (
             <div
               className={cls(style.fixed, showWidge && style.active)}
               onClick={(e) => {
@@ -90,9 +93,13 @@ export const DoubleColumnLayout: React.FC<IProps> = ({
                   <CommentIcon />
                 </div>
               )}
+              {shareProps && (
+                <div className={`${style.widgetWrapper} ${style.shareButtonforpostdetail}`}>
+                  <Share {...shareProps} />
+                </div>
+              )}
             </div>
           )}
-
           <section className={cls(style.left, leftClassName)}>{leftNode}</section>
           <aside
             ref={$aside}

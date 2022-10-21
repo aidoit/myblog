@@ -22,7 +22,7 @@
   "gettingArticle": "Fetching articles...",
   "comment": "Comment",
   "gettingKnowledge": "Fetching knowledge books...",
-  "knowledgeBooks": "Knowledge Books",
+  "knowledgeBooks": "Wiki",
   "readingCount": "reading",
   "startReading": "Start Reading",
   "pleaseWait": "Coming soon",
@@ -71,5 +71,16 @@
   "toc": "Toc",
   "logingWithGithub": "Login With Github, Please wait...",
   "useGithubToLogin": "Login with Github account",
-  "loginTipMessage": "Please login, otherwise you will not be able to comment. If you need an account, you can go to the admin system to register"
+  "loginTipMessage": "Please login, otherwise you will not be able to comment. If you need an account, you can go to the admin system to register",
+  "rewardNamespace": {
+		"sponsorMe": "Please sponsor me if the article is helpful to you.",
+		"thanks": "Thanks for your encouragement to the author",
+		"customAmount": "Custom Amount",
+		"reward": "Reward",
+		"youWantTo": "Amount you want to reward.",
+		"paymentMethod": "Select Payment Method：",
+		"confirm": "Confirm"
+	},
+	"aliPay": "AliPay",
+	"wechatPay": "WechatPay"
 }

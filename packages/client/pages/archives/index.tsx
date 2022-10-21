@@ -35,7 +35,7 @@ const ArchiveItem = ({ month, articles = [] }) => {
           renderItem={(index) => {
             const article = articles[index];
             return (
-              <Link href={`/article/[id]`} as={`/article/${article.id}`} scroll={false}>
+              <Link href={`/post/[id]`} as={`/post/${article.id}`} scroll={false}>
                 <a aria-label={article.title}>
                   <span className={style.meta}>
                     <LocaleTime date={article.publishAt} format={'MM-dd'} />

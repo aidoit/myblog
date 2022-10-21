@@ -1,11 +1,28 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+/*
+ * snowflake-uuid
+ * https://github.com/rakheyl/snowflake-uuid
+ */
+import { Worker } from 'snowflake-uuid';
+import { BeforeInsert, Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from 'typeorm';
+const generator = new Worker(0, 1, {
+  workerIdBits: 5,
+  datacenterIdBits: 5,
+  sequenceBits: 12,
+});
 
 @Entity()
 export class Knowledge {
   @ApiProperty()
-  @PrimaryGeneratedColumn('uuid')
+  // @PrimaryGeneratedColumn('uuid')
+  // id: string;
+  @PrimaryColumn('varchar', {})
   id: string;
+
+  @BeforeInsert()
+  setId() {
+    this.id = generator.nextId().toString();
+  }
 
   @ApiProperty()
   @Column({ default: null })

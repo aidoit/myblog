@@ -1,3 +1,4 @@
+import { createFromIconfontCN } from '@ant-design/icons';
 import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 import { BackTop } from 'antd';
@@ -14,6 +15,10 @@ interface Iprops {
   needFooter?: boolean;
   hasBg?: boolean;
 }
+
+const IconFont = createFromIconfontCN({
+  scriptUrl: ['//at.alicdn.com/t/c/font_3373608_fjjugrwddbs.js'],
+});
 
 export const AppLayout: React.FC<Iprops> = ({ children, needFooter = true, hasBg }) => {
   const { setting, pages, tags } = useContext(GlobalContext);
@@ -45,7 +50,9 @@ export const AppLayout: React.FC<Iprops> = ({ children, needFooter = true, hasBg
         {children}
       </main>
       {systemBg && !hasBg && <div className={style.bg} style={{ backgroundImage: bg }}></div>}
-      <BackTop />
+      <BackTop className={style.backupicon}>
+        <IconFont type="icon-uparrowbig" style={{ fontSize: '23px' }} />
+      </BackTop>
       {needFooter && <Footer setting={setting} hasBg={customBg} />}
     </div>
   );
