@@ -1,0 +1,92 @@
+.reward {
+	text-align: center;
+
+	.rewardText {
+		margin-top: 50px;
+		line-height: 18px;
+		font-size: 14px;
+		color: rgb(224, 24, 74);
+	}
+
+	.rewardBtn {
+		border-radius: 4px;
+		border-color: rgb(224, 24, 74);
+		margin-top: 27px;
+		background: rgb(224, 24, 74);
+	}
+
+	.rewardDialogueItemSelectCustom {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+}
+
+.antModalBody {
+
+	.antModalTitle {
+		font-size: 15px;
+		color: var(--second-text-color);
+	}
+
+	// .rewardDialogAmountList {
+	// 	-webkit-box-orient: horizontal;
+	// 	-ms-flex-direction: row;
+	// 	flex-direction: row;
+	// 	-ms-flex-wrap: wrap;
+	// 	flex-wrap: wrap;
+	// 	-webkit-box-pack: justify;
+	// 	-ms-flex-pack: justify;
+	// 	justify-content: space-between;
+	// 	display: -webkit-box;
+	// 	display: -ms-flexbox;
+	// 	display: flex;
+	// 	-webkit-box-direction: normal;
+	// }
+
+	// .rewardDialogAmountListBtn {
+	// 	width: 22%;
+	// 	margin: 0 0 24px;
+	// 	font-size: 14px;
+	// 	font-weight: 600;
+	// 	color: rgb(224, 24, 74);
+	// 	border-color: rgb(224, 24, 74);
+
+	// 	&:hover,
+	// 	&:focus {
+	// 		background: rgb(247, 182, 199);
+	// 	}
+
+	// 	.rewardDialogAmountListBtn:active {
+	// 		background: rgb(224, 24, 74);
+	// 	}
+	// }
+
+	// .rewardDialogueAmountCustom {
+	// 	display: flex;
+	// 	-webkit-box-pack: center;
+	// 	-ms-flex-pack: center;
+	// 	justify-content: center;
+	// 	margin-top: 6px;
+	// 	-webkit-box-direction: normal;
+	// 	-ms-flex-direction: row;
+	// 	flex-direction: row;
+	// }
+
+	// .rewardDialogueAmountCustomBtn {
+	// 	color: rgb(224, 24, 74);
+
+	// 	&:hover,
+	// 	&focus,
+	// 	&active,
+	// 	&mouseover,
+	// 	&mousemove {
+	// 		background: transparent;
+	// 	}
+	// }
+}
+
+.rewardContainer {
+	padding: auto;
+}
